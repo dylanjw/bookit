@@ -1,0 +1,49 @@
+#+TITLE:   Bookit
+#+DATE:    December 4, 2019
+#+SINCE:   {replace with next tagged release version}
+#+STARTUP: inlineimages
+
+* Table of Contents :TOC_3:noexport:
+- [[#description][Description]]
+- [[#prerequisites][Prerequisites]]
+- [[#features][Features]]
+- [[#configuration][Configuration]]
+- [[#troubleshooting][Troubleshooting]]
+
+* Description
+I have a commercial kitchen space, and I wanted a way to manage the rental to
+third parties.
+
+User stories:
+- [ ] As the kitchen owner I want management of scheduling for
+bookings to be automated so that I dont need to expend time or money.
+
+- [ ] As the kitchen owner I want a system that makes it easy to schedule a cleaner
+after every booking so that I dont need to expend extra time or money.
+
+- [ ] As a kitchen owner I want the users of the system to have an account onboarding
+process so that they can be vetted.
+
+- [ ] As a kitchen owner I want to a system that can receive payments for bookings, so
+that I dont have to worry if people have paid yet.
+
+- [ ] As a kitchen renter I want to be able to see open shifts so that I can easily
+plan.
+
+- [ ] As a kitchen renter I want the option to book full, half days or shared days so
+that I can manage my costs.
+
+- [ ] As a kitchen renter I want the option to book one off and repeating days.
+
+
+* Prerequisites
+This module depends on python Django 3.0, Python 3.8 and Postgres.
+
+* Features
+TBD
+
+* Configuration
+TBD
+
+* Troubleshooting
+TBD
