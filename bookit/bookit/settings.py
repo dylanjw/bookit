@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import environ
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 root = environ.Path(__file__) - 2  # Set the base directory to two levels.
 env = environ.Env(DEBUG=(bool, False), )  # set default values and casting
@@ -33,6 +31,8 @@ BASE_DIR = root()
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=['localhost'])
 
+EMAIL_BACKEND = ('django.core.mail.backends.console.EmailBackend' if ENV == 'local'
+                 else 'django.core.mail.backends.smtp.EmailBackend')
 
 # Application definition
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'djreservations',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'djreservations.middleware.ReservationMiddleware',
 ]
+
+DEFAULT_FROM_EMAIL = "mail@example.com"
+EMAIL_HOST = "localhost"
+EMAIL_PORT = "1025"
 
 ROOT_URLCONF = 'bookit.urls'
 
