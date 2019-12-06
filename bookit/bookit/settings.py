@@ -11,21 +11,27 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import environ
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+root = environ.Path(__file__) - 2  # Set the base directory to two levels.
+env = environ.Env(DEBUG=(bool, False), )  # set default values and casting
+env.read_env(str(root.path('.env')))  # reading .env file
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
+DEBUG = env.bool('DEBUG', default=True)
+ENV = env('ENV', default='local')
+DEBUG_ENVS = env.list('DEBUG_ENVS', default=['local', 'stage', 'test'])
+IS_DEBUG_ENV = ENV in DEBUG_ENVS
+HOSTNAME = env('HOSTNAME', default=socket.gethostname())
+BASE_URL = env('BASE_URL', default='http://localhost:8000/')
+SECRET_KEY = env('SECRET_KEY', default='YOUR-SupEr-SecRet-KeY')
+ADMINS = (env.tuple('ADMINS', default=('TODO', 'todo@todo.net')))
+BASE_DIR = root()
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'foxt70cxxfj23^1m*xk61$4-+n5xbijh^4^hme=1^@u&f5dg#r'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=['localhost'])
 
 
 # Application definition
