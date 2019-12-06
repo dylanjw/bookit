@@ -5,6 +5,16 @@
 
 * Table of Contents :TOC_3:noexport:
 - [[#description][Description]]
+  - [[#user-stories][User stories]]
+  - [[#agenda][Agenda]]
+    - [[#authentication-system][Authentication System]]
+    - [[#signup-system][Signup System]]
+    - [[#integrate-schedulingbooking-app-httpsgithubcomluiszadjreservation][Integrate scheduling/booking app: https://github.com/luisza/djreservation]]
+    - [[#calendaragenda-template--view][Calendar/Agenda template + view]]
+    - [[#detailed-booking-views][Detailed booking views]]
+    - [[#staff-cleaning-scheduling-available-shift-accepted-shift][Staff cleaning scheduling (available shift, accepted shift)]]
+    - [[#rental-catalog-dishes-etc][Rental Catalog (dishes, etc.)]]
+    - [[#payments][Payments]]
 - [[#prerequisites][Prerequisites]]
 - [[#features][Features]]
 - [[#configuration][Configuration]]
@@ -14,7 +24,7 @@
 I have a commercial kitchen space, and I wanted a way to manage the rental to
 third parties.
 
-User stories:
+** User stories
 - [ ] As a user I want to an easy way to schedule my booking dates so that I can
   get on with my day.
 
@@ -22,9 +32,10 @@ User stories:
   know when Im booked.
 
 - [ ] As a user I want to an easy way to modify my scheduled booking dates so that I can
-  know when Im booked.
+  change my schedule.
 
-- [ ] As a admin I want to an easy way to see detailed bookings in a calendar so
+- [ ] As a admin I want an easy way to see detailed bookings and a calendar
+  overview so
   I can effectively manage any issues.
 
 - [ ] As the kitchen owner I want a system that makes it easy to schedule a cleaner
@@ -44,6 +55,24 @@ that I can manage my costs.
 
 - [ ] As a kitchen renter I want the option to book one off and repeating days.
 
+** Agenda
+*** TODO Authentication System
+**** TODO Types of users:
+- Members (Pending Approval)
+- Members (Approved)
+- Staff
+- Admin
+*** TODO Signup System
+*** TODO Integrate scheduling/booking app: https://github.com/luisza/djreservation
+*** TODO Calendar/Agenda template + view
+*** TODO Detailed booking views
+*** TODO Staff cleaning scheduling (available shift, accepted shift)
+*** TODO Rental Catalog (dishes, etc.)
+*** TODO Payments
+**** TODO Accept credit cards, paypal, etc..
+**** TODO Deposit system for holding days
+**** TODO Shared days: A day can be marked as "available to share", and cost is split if
+another member books the same day, or charged full if no one books.
 
 * Prerequisites
 This module depends on python Django 3.0, Python 3.8 and Postgres.

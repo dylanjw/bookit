@@ -5,6 +5,9 @@ tmp/
 
 *.py[cod]
 *.egg
+*.swp
+.python-version
+poetry.lock
 build
 htmlcov
 venv/
