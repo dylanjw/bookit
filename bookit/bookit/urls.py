@@ -19,6 +19,7 @@ from django.urls import path, include
 import core.views as core_views
 
 urlpatterns = [
+    path('', core_views.home, name='home'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup', core_views.signup, name='signup'),
 ]
