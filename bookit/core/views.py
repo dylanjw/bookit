@@ -4,6 +4,9 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
+from djreservation.views import (
+    ProductReservationView,
+)
 
 @login_required
 def home(request):
@@ -23,3 +26,7 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+class KitchenReservation(ProductReservation):
+    base_model = KitchenModel()
+    amount_field = 'quantity'

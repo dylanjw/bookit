@@ -7,8 +7,7 @@
 - [[#description][Description]]
   - [[#user-stories][User stories]]
   - [[#agenda][Agenda]]
-    - [[#authentication-system][Authentication System]]
-    - [[#signup-system][Signup System]]
+    - [[#memberauthentication-system][Member/Authentication System]]
     - [[#integrate-schedulingbooking-app-httpsgithubcomluiszadjreservation][Integrate scheduling/booking app: https://github.com/luisza/djreservation]]
     - [[#calendaragenda-template--view][Calendar/Agenda template + view]]
     - [[#detailed-booking-views][Detailed booking views]]
@@ -56,13 +55,14 @@ that I can manage my costs.
 - [ ] As a kitchen renter I want the option to book one off and repeating days.
 
 ** Agenda
-*** TODO Authentication System
+*** TODO Member/Authentication System
+**** DONE Bare Bones Authentication System
+**** TODO Membership application
 **** TODO Types of users:
 - Members (Pending Approval)
 - Members (Approved)
 - Staff
 - Admin
-*** TODO Signup System
 *** TODO Integrate scheduling/booking app: https://github.com/luisza/djreservation
 *** TODO Calendar/Agenda template + view
 *** TODO Detailed booking views

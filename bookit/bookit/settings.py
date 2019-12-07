@@ -58,10 +58,6 @@ MIDDLEWARE = [
     'djreservations.middleware.ReservationMiddleware',
 ]
 
-DEFAULT_FROM_EMAIL = "mail@example.com"
-EMAIL_HOST = "localhost"
-EMAIL_PORT = "1025"
-
 ROOT_URLCONF = 'bookit.urls'
 
 TEMPLATES = [

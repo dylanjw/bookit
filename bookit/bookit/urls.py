@@ -16,11 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.auth import login, logout
 from django.urls import path, include
+from djreservation import urls as djreservation_urls
+
 import core.views as core_views
 
 urlpatterns = [
     path('', core_views.home, name='home'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup', core_views.signup, name='signup'),
+    path('reservation', include(djreservation_urls)),
+    path('reservation/create', core_views.KitchenReservation().as_view())
 ]
 
