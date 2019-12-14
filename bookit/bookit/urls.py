@@ -14,17 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.contrib.auth import login, logout
-from django.urls import path, include
-from djreservation import urls as djreservation_urls
+from django.urls import path, include, re_path
 
 import core.views as core_views
 
 urlpatterns = [
     path('', core_views.home, name='home'),
+    path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup', core_views.signup, name='signup'),
-    path('reservation', include(djreservation_urls)),
-    path('reservation/create', core_views.KitchenReservation().as_view())
+    path('calendar/',
+         core_views.CalendarView.as_view(),
+         name='full_calendar',
+         ),
+    path('booking/create/',
+         core_views.CreateEventView.as_view(),
+         name='create_booking',
+         ),
+    path('booking/edit/',
+         core_views.EditBookingView.as_view(),
+         name='edit_booking',
+         ),
+    re_path(r'^schedule/', include('schedule.urls')),
 ]
-

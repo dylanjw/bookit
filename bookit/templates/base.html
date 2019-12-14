@@ -1,22 +1,68 @@
+{% load i18n static %}
+{% load render_bundle from webpack_loader %}
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{% block title %}Simple is Better Than Complex{% endblock %}</title>
-  </head>
-  <body>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}" xml:lang="{{ LANGUAGE_CODE }}" lang="{{ LANGUAGE_CODE }}">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>{% if site_name %}{{ site_name }} : {% endif %}{% block head_title %}{% endblock %}</title>
+
+        {% render_bundle "main" "css" %}
+
+        {% block extra_head %}
+        {% endblock %}
+    </head>
+
+    <body>
+    {% render_bundle "main" %}
     <header>
-      <h1>My Site</h1>
-      {% if user.is_authenticated %}
-        <a href="{% url 'login' %}">logout</a>
-      {% else %}
-        <a href="{% url 'login' %}">login</a> / <a href="{% url 'signup' %}">signup</a>
-      {% endif %}
-      <hr>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <ul class="navbar-nav mr-auto">
+                <a class="navbar-brand" href="#">Bookit</a>
+                <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </ul>
+
+            {% if user.is_authenticated %}
+            <li class="nav-item mr-sm-2">
+                <a class="nav-link" href="{% url 'logout' %}">logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item mr-sm-2">
+                <a class= "nav-link" href="{% url 'login' %}">login</a>
+            </li>
+            <li class="nav-item">
+                <a class= "nav-link" href="{% url 'signup' %}">signup</a>
+            </li>
+            {% endif %}
+        </nav>
+        <hr>
     </header>
-    <main>
-      {% block content %}
-      {% endblock %}
-    </main>
-  </body>
+
+    <p style="clear:both">
+
+        <div id="body">
+            {% if messages %}
+                <ul id="messages">
+                    {% for message in messages %}
+                    <li id="message_{{ forloop.counter }}"><a href="#" onclick="$('#message_{{ forloop.counter }}').fadeOut(); return false;"><small>{% trans "clear" %}</small></a> {{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% block body %}
+            {% endblock %}
+
+        </div>
+
+        <div id="footer">{% block footer %}{% endblock %}</div>
+
+    </body>
 </html>

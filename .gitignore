@@ -1,4 +1,8 @@
 .env
+bookit/db.sqlite3
+bookit/assets/dist
+bookit/webpack-stats.json
+yarn-error.log
 
 .DS_Store
 .idea
@@ -13,3 +17,5 @@ poetry.lock
 build
 htmlcov
 venv/
+node_modules/
+bookit.egg-info/

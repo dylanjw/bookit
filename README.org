@@ -5,15 +5,10 @@
 
 * Table of Contents :TOC_3:noexport:
 - [[#description][Description]]
-  - [[#user-stories][User stories]]
-  - [[#agenda][Agenda]]
-    - [[#memberauthentication-system][Member/Authentication System]]
-    - [[#integrate-schedulingbooking-app-httpsgithubcomluiszadjreservation][Integrate scheduling/booking app: https://github.com/luisza/djreservation]]
-    - [[#calendaragenda-template--view][Calendar/Agenda template + view]]
-    - [[#detailed-booking-views][Detailed booking views]]
-    - [[#staff-cleaning-scheduling-available-shift-accepted-shift][Staff cleaning scheduling (available shift, accepted shift)]]
-    - [[#rental-catalog-dishes-etc][Rental Catalog (dishes, etc.)]]
-    - [[#payments][Payments]]
+  - [[#planning][Planning]]
+    - [[#user-stories][User stories]]
+    - [[#agenda][Agenda]]
+    - [[#data][Data]]
 - [[#prerequisites][Prerequisites]]
 - [[#features][Features]]
 - [[#configuration][Configuration]]
@@ -23,7 +18,8 @@
 I have a commercial kitchen space, and I wanted a way to manage the rental to
 third parties.
 
-** User stories
+** Planning
+*** User stories
 - [ ] As a user I want to an easy way to schedule my booking dates so that I can
   get on with my day.
 
@@ -34,48 +30,74 @@ third parties.
   change my schedule.
 
 - [ ] As a admin I want an easy way to see detailed bookings and a calendar
-  overview so
-  I can effectively manage any issues.
+  overview so I can effectively manage any issues.
 
-- [ ] As the kitchen owner I want a system that makes it easy to schedule a cleaner
+- [ ] As the owner I want a system that makes it easy to schedule a cleaner
 after every booking so that I dont need to expend extra time or money.
 
-- [ ] As a kitchen owner I want the users of the system to have an account onboarding
+- [ ] As a owner I want the users of the system to have an account onboarding
 process so that they can be vetted.
 
-- [ ] As a kitchen owner I want to a system that can receive payments for bookings, so
+- [ ] As a owner I want to a system that can receive payments for bookings, so
 that I dont have to worry if people have paid yet.
 
-- [ ] As a kitchen renter I want to be able to see open shifts so that I can easily
+- [ ] As a renter I want to be able to see open shifts so that I can easily
 plan.
 
-- [ ] As a kitchen renter I want the option to book full, half days or shared days so
+- [ ] As an renter I want the option to book full, half days or shared days so
 that I can manage my costs.
 
-- [ ] As a kitchen renter I want the option to book one off and repeating days.
+- [ ] As a manager I want the option to book one off and repeating days.
 
-** Agenda
-*** TODO Member/Authentication System
-**** DONE Bare Bones Authentication System
-**** TODO Membership application
-**** TODO Types of users:
+- [ ] As a manager I want a way to calculate a charge deposits, so I dont have to.
+
+*** Agenda
+**** TODO MVP A calendar app that charges users for appointments [2/15]
+***** DONE Create a Calander model for every new user
+***** TODO User dashboard view
+****** TODO Calendar
+****** TODO Update profile
+****** TODO Announcements
+****** TODO Document view
+
+***** TODO User, calendar, event, occurrance models
+***** TODO Calendar views: monthly
+***** TODO simple "inventory". A single row model, with a stock of 1 (the rental space)
+***** TODO appointment availability
+***** TODO Event creation, editing view
+***** TODO Simple payment system.
+***** DONE Bare Bones Authentication System
+
+***** TODO Update django.models.Site with site info
+***** TODO Notifications with Django Messaging System
+
+**** TODO Member/Authentication System
+***** TODO Membership application
+***** TODO Types of users:
 - Members (Pending Approval)
 - Members (Approved)
 - Staff
 - Admin
-*** TODO Integrate scheduling/booking app: https://github.com/luisza/djreservation
-*** TODO Calendar/Agenda template + view
-*** TODO Detailed booking views
-*** TODO Staff cleaning scheduling (available shift, accepted shift)
-*** TODO Rental Catalog (dishes, etc.)
-*** TODO Payments
-**** TODO Accept credit cards, paypal, etc..
-**** TODO Deposit system for holding days
-**** TODO Shared days: A day can be marked as "available to share", and cost is split if
+**** TODO Detailed booking views
+**** TODO Staff cleaning scheduling (available shift, accepted shift)
+**** TODO Rental Catalog (dishes, etc.)
+**** TODO Payments
+***** TODO Accept credit cards, paypal, etc..
+***** TODO Deposit system for holding days
+***** TODO Shared days: A day can be marked as "available to share", and cost is split if
 another member books the same day, or charged full if no one books.
 
+
+*** Data
+**** User
+***** Features
+*****
+
+**** Order - a booking, essentially.
+**** Tangible - iventory item
+
 * Prerequisites
-This module depends on python Django 3.0, Python 3.8 and Postgres.
+This module depends on python Django 3.0, Python 3.8.
 
 * Features
 TBD

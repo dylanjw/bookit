@@ -9,13 +9,18 @@ license = "GPL-3.0-or-later"
 python = "^3.8"
 Django = "=3.0"
 pip = "^19.3.1"
-psycopg2 = "^2.8.4"
 django-environ = "^0.4.5"
 django-reservation = "^0.2.9"
+django-scheduler = "^0.9.3"
+django-yarn = "^0.0.2"
+django-webpack-loader = "^0.6.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3.1"
 iPython = "^7.10"
+flake8 = "^3.7.9"
+pytest-django = "^3.7.0"
+pytest-pythonpath = "^0.7.3"
 
 
 [build-system]
