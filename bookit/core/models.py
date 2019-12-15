@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 from django.db import (
     models,
 )
@@ -12,6 +13,7 @@ from django.contrib.auth.models import (
 
 from schedule.models import (
     Calendar,
+    Event,
 )
 
 '''Notes about `schedule`
@@ -34,3 +36,7 @@ class User(AbstractUser):
         super().save(*args, **kwargs)
         Calendar.objects.get_or_create_calendar_for_object(
             self)
+
+
+class BookitEvent(Event):
+    pass

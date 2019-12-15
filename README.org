@@ -51,17 +51,25 @@ that I can manage my costs.
 
 - [ ] As a manager I want a way to calculate a charge deposits, so I dont have to.
 
+- [ ] As a member I want a way to quickly re-rent commonly rented items because
+  so that I dont have to enter as much information.
+
+- [ ] As a member I want a way to edit my account information
+
 *** Agenda
-**** TODO MVP A calendar app that charges users for appointments [2/15]
+**** TODO MVP A calendar app that charges users for appointments [3/19]
 ***** DONE Create a Calander model for every new user
 ***** TODO User dashboard view
 ****** TODO Calendar
 ****** TODO Update profile
 ****** TODO Announcements
 ****** TODO Document view
-
+****** DONE List calendar view
+****** TODO Link to create a new reservation
+****** TODO Events link to event details
+***** TODO Create reservation page
 ***** TODO User, calendar, event, occurrance models
-***** TODO Calendar views: monthly
+***** TODO Write json serializer for to be consumed by fullcalendar: https://fullcalendar.io/docs/event-parsing
 ***** TODO simple "inventory". A single row model, with a stock of 1 (the rental space)
 ***** TODO appointment availability
 ***** TODO Event creation, editing view

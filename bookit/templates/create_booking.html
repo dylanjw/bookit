@@ -1,0 +1,5 @@
+<form action="/create_booking/" method="post">
+  {% csrf_token %}
+  {{ booking_form }}
+  <input class="btn btn-primary" type="submit" value="Submit"/>
+</form>

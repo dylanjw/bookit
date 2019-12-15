@@ -6,14 +6,17 @@ from django.shortcuts import render, redirect, get_object_or_404
 import schedule.views
 from schedule.models import Calendar
 
-from .forms import BookitUserCreationForm
+from .forms import (
+    BookitUserCreationForm,
+    BookitEventCreationForm,
+)
 
 # from core.models import BookitUserCalendar
 
 @login_required
 def home(request):
     if request.user.is_authenticated:
-        return render(request, 'dashboard.html')
+        return render(request, 'dashboard.html', {'booking_form': BookitEventCreationForm})
     else:
         return render(request, 'home.html')
 
