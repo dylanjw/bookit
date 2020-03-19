@@ -52,7 +52,7 @@ class CreateEventView(schedule.views.CreateEventView):
         event.calendar = Calendar.objects.get_calendar_for_object(
             self.request.user)
         event.save()
-        return HttpResponseRedirect(event.get_absolute_url())
+        return redirect('home')
 
 
 class CreateBookingView(schedule.views.CreateEventView):

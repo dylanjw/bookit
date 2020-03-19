@@ -1,17 +1,33 @@
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
 
 export function attach_entry_calendar(elementID) {
     document.addEventListener('DOMContentLoaded', function() {
     var entryCalendarEl = document.getElementById(elementID);
 
     let entry_calendar = new Calendar(entryCalendarEl, {
-        plugins: [ dayGridPlugin ],
+        plugins: [
+            dayGridPlugin,
+            interactionPlugin
+        ],
         selectable: true,
-        defaultView: 'dayGridMonth'
-        dateClick: alert(''),
-        select: alert(''),
+        defaultView: 'dayGridMonth',
+        dateClick: function(info) {
+            $('a[href="#v-pills-create_form"]').tab('show');
+            $('#id_start_0').val(info.startStr)
+            $('#id_start_1').val('10am')
+            $('#id_end_0').val(info.endStr)
+            $('#id_end_1').val('10pm')
+            console.log(info)
+        },
+        select: function(info) {
+            $('a[href="#v-pills-create_form"]').tab('show');
+            $('#id_start').val(info.startStr)
+            $('#id_end').val(info.endStr)
+            console.log(info)
+        },
     });
     entry_calendar.render()
 
@@ -19,7 +35,8 @@ export function attach_entry_calendar(elementID) {
     var day_grid = entry_calendar.el.getElementsByClassName('fc-day-grid-container')[0]
     day_grid.style.overflow = "visible"
 })};
-    
+
+
 export function attach_calendar(elementID) {
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById(elementID);

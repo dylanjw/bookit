@@ -13,7 +13,15 @@ module.exports = {
         filename: "[name].[hash].js"
     },
     plugins: [
-	new CleanWebpackPlugin(),
+        new webpack.ProvidePlugin(
+            {
+                $: 'jquery',
+                jQuery: 'jquery',
+                'windows.jQuery': 'jquery',
+            }
+        ),
+        new webpack.SourceMapDevToolPlugin({exclude: ['popper.js']}),
+        new CleanWebpackPlugin(),
         new BundleTracker({filename: 'bookit/webpack-stats.json'})
     ],
     module: {
@@ -30,6 +38,10 @@ module.exports = {
         ]
     },
     resolve: {
-        modules: ['node_modules'],
+        alias: {
+            // Force all modules to use the same jquery version.
+            'jquery': path.join(__dirname, 'node_modules/jquery/src/jquery')
+        },
+        modules: ['node_modules']
     }
 };
